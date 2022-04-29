@@ -56,7 +56,7 @@ class UserController {
             const client = new OAuth2Client(process.env.CLIENT_ID);
             const ticket = await client.verifyIdToken({
                 idToken: token,
-                audience: process.env.CLIEN_ID,
+                audience: process.env.CLIENT_ID,
             });
             const payLoad = ticket.getPayload();
             const [ user, created ] = await User.findOrCreate({
